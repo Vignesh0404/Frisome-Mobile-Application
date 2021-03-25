@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:fri_web/foodDetail.dart';
 import 'package:http/http.dart' as http;
 import 'data.dart';
 
@@ -77,7 +80,9 @@ class _LandingScreenState extends State<LandingScreen> {
                   if (snapshot.hasError) print(snapshot.error);
 
                   return snapshot.hasData
-                      ? FoodItem(photos: snapshot.data)
+                      ? FoodItem(
+                          photos: snapshot.data,
+                        )
                       : Center(child: CircularProgressIndicator());
                 },
               ),
@@ -122,142 +127,185 @@ class _LandingScreenState extends State<LandingScreen> {
   }
 }
 
-class FoodItem extends StatelessWidget {
+class FoodItem extends StatefulWidget {
   final List<Photo> photos;
 
   const FoodItem({this.photos});
 
   @override
+  _FoodItemState createState() => _FoodItemState();
+}
+
+class _FoodItemState extends State<FoodItem> {
+  int _counter = 0;
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ListView.builder(
         shrinkWrap: true,
-        itemCount: photos.length,
+        itemCount: widget.photos.length,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              width: double.infinity,
-              color: Colors.white,
-              child: Row(
-                children: [
-                  Image.network(
-                    photos[index].image[0],
-                    height: 130,
-                    width: 130,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              photos[index].name,
-                              style: TextStyle(fontWeight: FontWeight.w700),
-                            ),
-                            Spacer(),
-                            Text(
-                              '3.5',
-                              style: TextStyle(
-                                  color: Colors.pinkAccent,
-                                  fontWeight: FontWeight.w900),
-                            ),
-                            Icon(
-                              Icons.star,
-                              color: Colors.pinkAccent,
-                            ),
-                            SizedBox(
-                              width: 15,
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Image.asset(
-                              'images/veg.png',
-                              height: 40,
-                              width: 40,
-                            ),
-                            Text(
-                              "₹",
-                              style: TextStyle(
-                                  color: Colors.grey.shade600,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w900),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Column(
-                              children: [
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  "5",
-                                  style: TextStyle(
-                                      color: Colors.grey.shade400,
-                                      fontSize: 35,
-                                      fontWeight: FontWeight.w900),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 40,
-                            ),
-                            Container(
-                              width: 22,
-                              height: 22,
-                              decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Align(
-                                  child: Text(
-                                '-',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              )),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              '1',
-                              style: TextStyle(
-                                  color: Colors.grey.shade600,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Container(
-                              width: 22,
-                              height: 22,
-                              decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Align(
-                                  child: Text(
-                                '+',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18),
-                              )),
-                            )
-                          ],
-                        ),
-                      ],
+          return GestureDetector(
+            onTap: () {
+              print(widget.photos[index].name + ' clicked');
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FoodDetails(
+                      name: widget.photos[index].name,
+                      desc: widget.photos[index].description,
+                      img: widget.photos[index].image[0],
+                      // getImage: image,
                     ),
-                  ),
-                ],
+                  ));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                width: double.infinity,
+                color: Colors.white,
+                child: Row(
+                  children: [
+                    Image.network(
+                      widget.photos[index].image[0],
+                      height: 130,
+                      width: 130,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                widget.photos[index].name,
+                                style: TextStyle(fontWeight: FontWeight.w700),
+                              ),
+                              Spacer(),
+                              Text(
+                                '3.5',
+                                style: TextStyle(
+                                    color: Colors.pinkAccent,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: Colors.pinkAccent,
+                              ),
+                              SizedBox(
+                                width: 15,
+                              )
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Image.asset(
+                                'images/veg.png',
+                                height: 40,
+                                width: 40,
+                              ),
+                              Text(
+                                "₹",
+                                style: TextStyle(
+                                    color: Colors.grey.shade600,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Column(
+                                children: [
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Text(
+                                    "5",
+                                    style: TextStyle(
+                                        color: Colors.grey.shade400,
+                                        fontSize: 35,
+                                        fontWeight: FontWeight.w900),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 40,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  _decrementCounter();
+                                },
+                                child: Container(
+                                  width: 22,
+                                  height: 22,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(15)),
+                                  child: Align(
+                                      child: Text(
+                                    '-',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  )),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                _counter.toString(),
+                                style: TextStyle(
+                                    color: Colors.grey.shade600,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  _incrementCounter();
+                                },
+                                child: Container(
+                                  width: 22,
+                                  height: 22,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(15)),
+                                  child: Align(
+                                      child: Text(
+                                    '+',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  )),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
