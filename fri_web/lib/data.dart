@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<Photo>> fetchPhotos(http.Client client) async {
-  final response = await client.get(Uri.parse(
-      'https://frisome.com/analytics/test/index/4e24f28b28647d98c6440420f9da0d35/json'));
+  String token;
+  final response = await client.get(
+      Uri.parse('https://frisome.com/analytics/test/index/' + token + '/json'));
 
   // Use the compute function to run parsePhotos in a separate isolate.
   return compute(parsePhotos, response.body);
