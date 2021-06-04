@@ -1,6 +1,6 @@
 ## FRISOME
 <h1 align="center">
-  <img src="https://inc42.com/wp-content/uploads/2019/07/food-delivery.jpg">
+  <img src="https://inc42.com/wp-content/uploads/2019/07/food-delivery.jpg" height=600 width=800>
 </h1>
 <p align="center">
 <a href=""><img title="Flutter" src="https://img.shields.io/badge/Flutter-2-blue?style=for-the-badge&logo=flutter"></a>
@@ -22,9 +22,9 @@ A freelancing project for Frisome and co.
      <td>More Details Page</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/7.gif" width=300 height=480></td>
-    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/3.jpeg" width=270 height=480></td>
-    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/2.jpeg" width=270 height=480></td>
+    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/7.gif"  width=300 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/3.jpeg"  width=300 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/2.jpeg"  width=300 height=600></td>
   </tr>
  </table>
  <br>
@@ -35,9 +35,9 @@ A freelancing project for Frisome and co.
      <td>Cart screen</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/1.jpeg" width=300 height=480></td>
-    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/4.jpeg" width=270 height=480></td>
-    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/5.jpeg" width=270 height=480></td>
+    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/1.jpeg"  width=300 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/4.jpeg"  width=300 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/5.jpeg"  width=300 height=600></td>
   </tr>
  </table>
  <br>
@@ -46,7 +46,7 @@ A freelancing project for Frisome and co.
  ## App Preview
  
  <h1 align="center">
-  <img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/6.gif"  width=400 height=650>
+  <img src="https://github.com/Vignesh0404/Frisome-Mobile-Application/blob/master/output/6.gif"   width=300 height=600>
 </h1>
  
  
