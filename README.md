@@ -1,6 +1,6 @@
 ## FRISOME
 <h1 align="center">
-  <img src="https://46vbgn3y13aq29shrj4arjn4-wpengine.netdna-ssl.com/wp-content/uploads/2021/01/Ghost-Kitchen-Model-1.png">
+  <img src="https://inc42.com/wp-content/uploads/2019/07/food-delivery.jpg">
 </h1>
 <p align="center">
 <a href=""><img title="Flutter" src="https://img.shields.io/badge/Flutter-2-blue?style=for-the-badge&logo=flutter"></a>
